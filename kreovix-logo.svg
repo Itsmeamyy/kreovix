@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 120" fill="none">
+  <!--
+    KREOVIX — Custom wordmark recreation
+    Color: #7B0D0D (dark crimson, as seen in logo)
+    Style: Bold custom display, rounded terminals, unique letterforms
+    No background — transparent so it works on both white and any bg
+  -->
+  <g fill="#7B0D0D">
+
+    <!-- K -->
+    <rect x="10" y="14" width="14" height="92" rx="3"/>
+    <path d="M24 56 L72 14 L88 14 L44 58 L90 106 L73 106 Z" rx="2"/>
+
+    <!-- R -->
+    <rect x="102" y="14" width="14" height="92" rx="3"/>
+    <path d="M116 14 L148 14 C163 14 174 25 174 42 C174 57 164 67 150 69 L178 106 L162 106 L135 70 L116 70 Z M116 58 L147 58 C155 58 160 52 160 43 C160 34 155 28 147 28 L116 28 Z" fill-rule="evenodd"/>
+
+    <!-- E -->
+    <rect x="192" y="14" width="14" height="92" rx="3"/>
+    <rect x="206" y="14" width="48" height="13" rx="3"/>
+    <rect x="206" y="53" width="40" height="13" rx="3"/>
+    <rect x="206" y="93" width="48" height="13" rx="3"/>
+
+    <!-- O -->
+    <path d="M308 60 C308 36 291 12 262 12 C233 12 216 36 216 60 C216 84 233 108 262 108 C291 108 308 84 308 60Z M294 60 C294 77 280 95 262 95 C244 95 230 77 230 60 C230 43 244 25 262 25 C280 25 294 43 294 60Z" fill-rule="evenodd"/>
+
+    <!-- V -->
+    <path d="M318 14 L332 14 L362 88 L392 14 L406 14 L368 106 L356 106 Z"/>
+
+    <!-- I -->
+    <rect x="418" y="14" width="14" height="92" rx="3"/>
+
+    <!-- X -->
+    <path d="M448 14 L462 14 L496 58 L530 14 L544 14 L504 62 L546 106 L532 106 L496 66 L460 106 L446 106 L488 62 Z"/>
+
+  </g>
+</svg>
