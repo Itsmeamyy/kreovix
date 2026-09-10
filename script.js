@@ -250,9 +250,11 @@ function toggleMoreServices() {
         <p>Thanks for reaching out — we'll come back to you within 48 hours with a custom proposal.</p>
       </div>`;
 
-    // Scroll to contact section
-    const section = document.getElementById('contact');
-    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Short delay so card renders before smooth scroll
+    setTimeout(() => {
+      const section = document.getElementById('contact');
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 150);
   }
 })();
 
