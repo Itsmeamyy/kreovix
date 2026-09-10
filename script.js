@@ -407,32 +407,6 @@ async function handleSubmit(e) {
   // Form will POST and redirect to ?sent=1#contact on success
 }
 
-    // With no-cors we can't read the response — treat the successful fetch as success
-    btn.textContent       = '✓ Message Sent!';
-    btn.style.background  = '#22c55e';
-    btn.style.borderColor = '#22c55e';
-    btn.style.color       = '#000';
-    form.reset();
-
-  } catch (err) {
-    btn.textContent       = '✗ Failed — try again';
-    btn.style.background  = '#ef4444';
-    btn.style.borderColor = '#ef4444';
-    btn.style.color       = '#fff';
-    console.error('Form submission error:', err);
-  }
-
-  // Reset button after 3.5 s
-  setTimeout(() => {
-    btn.textContent       = 'Send Message →';
-    btn.style.background  = '';
-    btn.style.borderColor = '';
-    btn.style.color       = '';
-    btn.disabled          = false;
-  }, 3500);
-}
-
-
 /* ─── Cursor glow effect (desktop) ─── */
 if (window.innerWidth > 900) {
   const cursor = document.createElement('div');
