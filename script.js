@@ -387,10 +387,13 @@ async function handleSubmit(e) {
   btn.disabled = true;
 
   try {
+    // URLSearchParams = "simple" content-type — works reliably with
+    // Google Apps Script in no-cors mode (JSON body gets silently dropped)
     await fetch(SCRIPT_URL, {
       method:  'POST',
-      mode:    'no-cors',          // avoids CORS preflight; response is opaque but data reaches Sheets
-      body:    JSON.stringify(payload)
+      mode:    'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body:    new URLSearchParams(payload).toString()
     });
 
     // With no-cors we can't read the response — treat the successful fetch as success
