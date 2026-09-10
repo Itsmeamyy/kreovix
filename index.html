@@ -985,7 +985,14 @@
         <h2 class="cta-title">Ready to build something <em>remarkable</em>?</h2>
         <p class="cta-sub">Tell us about your brand and we'll put together a custom proposal within 48 hours.</p>
 
-        <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/teamkreovix@gmail.com" method="POST" onsubmit="handleSubmit(event)">
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="New Kreovix Inquiry 🚀">
+          <input type="hidden" name="_next" value="https://www.kreovix.com/?sent=1#contact">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
+
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name</label>

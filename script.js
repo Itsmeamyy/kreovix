@@ -369,32 +369,13 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpp52e5OusVxZykqnn-
 // ──────────────────────────────────────────────────────────
 
 async function handleSubmit(e) {
-  e.preventDefault();
-  const btn  = document.getElementById('submit-btn');
-  const form = document.getElementById('contact-form');
-
-  // Gather form data
-  const payload = {
-    name:    document.getElementById('name').value.trim(),
-    brand:   document.getElementById('brand').value.trim(),
-    email:   document.getElementById('email').value.trim(),
-    budget:  document.getElementById('budget').value,
-    message: document.getElementById('message').value.trim()
-  };
-
-  // Loading state
+  // Let the native form POST to FormSubmit.co happen
+  // Just update button to show loading state
+  const btn = document.getElementById('submit-btn');
   btn.textContent = 'Sending…';
   btn.disabled = true;
-
-  try {
-    // URLSearchParams = "simple" content-type — works reliably with
-    // Google Apps Script in no-cors mode (JSON body gets silently dropped)
-    await fetch(SCRIPT_URL, {
-      method:  'POST',
-      mode:    'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body:    new URLSearchParams(payload).toString()
-    });
+  // Form will POST and redirect to ?sent=1#contact on success
+}
 
     // With no-cors we can't read the response — treat the successful fetch as success
     btn.textContent       = '✓ Message Sent!';
