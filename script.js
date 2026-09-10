@@ -222,9 +222,39 @@ function toggleMoreServices() {
   }
 }
 
+
 /* ══════════════════════════════════
    NAVBAR & SITE JS
 ══════════════════════════════════ */
+
+/* ─── Form Success Detection ─── */
+(function () {
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+    // Clean URL immediately
+    history.replaceState({}, '', window.location.pathname + '#contact');
+
+    // Wait for DOM then show success
+    window.addEventListener('DOMContentLoaded', showFormSuccess, { once: true });
+    if (document.readyState !== 'loading') showFormSuccess();
+  }
+
+  function showFormSuccess() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    // Replace form with success card
+    form.innerHTML = `
+      <div class="form-success">
+        <div class="form-success-icon">✓</div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out — we'll come back to you within 48 hours with a custom proposal.</p>
+      </div>`;
+
+    // Scroll to contact section
+    const section = document.getElementById('contact');
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+})();
 
 /* ─── Navbar Scroll ─── */
 const navbar = document.getElementById('navbar');
