@@ -1459,35 +1459,22 @@ em, i,
 
 .shop-card-visual {
   position: relative;
-  padding: 40px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--brand-subtle);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0a0a0a;
   border-bottom: 1px solid var(--border);
 }
 
-.shop-card-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: var(--radius-lg);
-  background: var(--gradient-brand);
-  color: #FDF4E3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px var(--brand-glow);
-  transition: all var(--transition);
+.shop-card-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow), opacity var(--transition);
 }
 
-.shop-card:hover .shop-card-icon {
-  transform: scale(1.1) rotate(-3deg);
-  box-shadow: 0 12px 32px var(--brand-glow);
-}
-
-.shop-card-icon svg {
-  width: 32px;
-  height: 32px;
+.shop-card:hover .shop-card-cover {
+  transform: scale(1.06);
+  opacity: 0.9;
 }
 
 .shop-badge {
@@ -2223,20 +2210,6 @@ em, i,
   }
 
   /* Shop */
-  .shop-card-visual {
-    padding: 28px 22px;
-  }
-
-  .shop-card-icon {
-    width: 56px;
-    height: 56px;
-  }
-
-  .shop-card-icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
   .shop-card-body {
     padding: 20px 20px 12px;
   }
