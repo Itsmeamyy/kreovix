@@ -1201,23 +1201,23 @@ i,
   border-color: rgba(255, 255, 255, 0.24);
   box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.85),
-    0 0 35px rgba(157, 133, 255, 0.18),
+    0 0 35px rgba(201, 46, 51, 0.22),
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.38);
 }
 
 .pricing-card.popular {
-  border-color: rgba(168, 146, 255, 0.35);
+  border-color: rgba(201, 46, 51, 0.45);
   box-shadow:
     0 26px 52px -12px rgba(0, 0, 0, 0.75),
-    0 0 35px rgba(157, 133, 255, 0.2),
+    0 0 35px rgba(201, 46, 51, 0.25),
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.32);
 }
 
 .pricing-card.popular:hover {
-  border-color: rgba(168, 146, 255, 0.55);
+  border-color: rgba(201, 46, 51, 0.7);
   box-shadow:
     0 32px 64px -12px rgba(0, 0, 0, 0.9),
-    0 0 45px rgba(157, 133, 255, 0.3),
+    0 0 45px rgba(201, 46, 51, 0.4),
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.45);
 }
 
@@ -1226,7 +1226,7 @@ i,
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #AC95FF 0%, #8E70F8 100%);
+  background: linear-gradient(135deg, #8B171A 0%, #B82328 50%, #D83137 100%);
   color: #FFFFFF;
   padding: 6px 18px;
   border-radius: var(--radius-full);
@@ -1235,7 +1235,7 @@ i,
   letter-spacing: 0.05em;
   text-transform: uppercase;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 16px rgba(142, 112, 248, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(201, 46, 51, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .pricing-top {
@@ -1283,10 +1283,10 @@ i,
 }
 
 .pricing-pack-btn.active {
-  background: linear-gradient(135deg, #AC95FF 0%, #8E70F8 100%);
+  background: linear-gradient(135deg, #8B171A 0%, #B82328 50%, #D83137 100%);
   color: #FFFFFF !important;
   border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 14px rgba(142, 112, 248, 0.35);
+  box-shadow: 0 4px 14px rgba(201, 46, 51, 0.4);
 }
 
 .pricing-price-box {
@@ -1359,18 +1359,18 @@ i,
 }
 
 .pricing-card .btn-primary {
-  background: linear-gradient(135deg, #AC95FF 0%, #8E70F8 100%);
+  background: linear-gradient(135deg, #8B171A 0%, #B82328 50%, #D83137 100%);
   color: #FFFFFF !important;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 18px rgba(142, 112, 248, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 18px rgba(201, 46, 51, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
   font-weight: 600;
 }
 
 .pricing-card .btn-primary:hover {
   transform: translateY(-2px);
   filter: brightness(1.12);
-  box-shadow: 0 8px 26px rgba(142, 112, 248, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 26px rgba(201, 46, 51, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .pricing-card .btn-outline {
@@ -1581,7 +1581,7 @@ i,
   border-color: rgba(255, 255, 255, 0.24);
   box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.85),
-    0 0 35px rgba(157, 133, 255, 0.18),
+    0 0 35px rgba(201, 46, 51, 0.22),
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.38);
 }
 
@@ -1630,8 +1630,7 @@ i,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #9D85FF;
-  background: linear-gradient(135deg, #AC95FF 0%, #8E70F8 100%);
+  background: linear-gradient(135deg, #8B171A 0%, #B82328 50%, #D83137 100%);
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 999px;
@@ -1640,7 +1639,7 @@ i,
   font-weight: 600;
   letter-spacing: -0.02em;
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(142, 112, 248, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 18px rgba(201, 46, 51, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
@@ -1648,7 +1647,7 @@ i,
 .shop-download-btn:hover {
   transform: translateY(-2px) scale(1.03);
   filter: brightness(1.12);
-  box-shadow: 0 8px 26px rgba(142, 112, 248, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 26px rgba(201, 46, 51, 0.65), inset 0 1px 2px rgba(255, 255, 255, 0.6);
   color: #FFFFFF;
 }
 
