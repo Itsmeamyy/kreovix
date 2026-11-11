@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background: Kreovix brand crimson -->
+  <rect width="512" height="512" fill="#6A1012" rx="80"/>
+
+  <!-- "k" lettermark in white — matching user's curved geometric k logo -->
+  <g fill="#ffffff">
+    <!-- Stem: tall vertical bar with angled top cut -->
+    <polygon points="138,62 170,78 170,440 138,440"/>
+
+    <!-- Upper diagonal arm: from mid-stem diagonally to upper right -->
+    <polygon points="170,192 170,238 360,100 360,54"/>
+
+    <!-- Lower leg: large swooping curved arc from junction down-right -->
+    <path d="
+      M 170,258
+      L 170,292
+      C 215,292 258,308 295,334
+      C 332,360 362,396 380,436
+      L 414,436
+      C 392,388 356,344 312,312
+      C 268,280 222,264 170,258
+      Z
+    "/>
+  </g>
+</svg>

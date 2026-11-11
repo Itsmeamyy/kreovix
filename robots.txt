@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Block access to source maps and dev files if any exist
+Disallow: /*.map$
+
+# Sitemap location
+Sitemap: https://www.kreovix.com/sitemap.xml
