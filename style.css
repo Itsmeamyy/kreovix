@@ -927,6 +927,7 @@ body.dark-mode .theme-toggle-btn .moon-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 44px;
 }
@@ -1089,12 +1090,198 @@ body.dark-mode .theme-toggle-btn .moon-icon {
   gap: 8px;
 }
 
-/* ─── 3-Step Process Section ("Your videos, effortlessly") ─── */
-.process-grid {
+/* ─── Services Section ─── */
+.services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 24px;
+}
+
+.service-card {
   position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(253, 244, 227, 0.7) 60%,
+    rgba(244, 230, 208, 0.8) 100%
+  );
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(106, 16, 18, 0.14);
+  border-radius: 28px;
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow:
+    0 16px 40px -12px rgba(106, 16, 18, 0.07),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+[data-theme="dark"] .service-card,
+body.dark-mode .service-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.015) 60%,
+    rgba(0, 0, 0, 0.45) 100%
+  ), rgba(16, 16, 20, 0.72);
+  border-color: rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 20px 44px -12px rgba(0, 0, 0, 0.7),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.02);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(106, 16, 18, 0.3);
+  box-shadow:
+    0 24px 50px -12px rgba(106, 16, 18, 0.12),
+    0 0 30px rgba(201, 46, 51, 0.18),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+}
+
+[data-theme="dark"] .service-card:hover,
+body.dark-mode .service-card:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 24px 50px -12px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(201, 46, 51, 0.2),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.35);
+}
+
+.service-card-featured {
+  grid-column: 1 / -1;
+  max-width: 780px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.service-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(106, 16, 18, 0.08);
+  border: 1px solid rgba(106, 16, 18, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+[data-theme="dark"] .service-icon-box,
+body.dark-mode .service-icon-box {
+  background: rgba(201, 46, 51, 0.15);
+  border-color: rgba(201, 46, 51, 0.3);
+  color: #ff6b6e;
+}
+
+.service-card:hover .service-icon-box {
+  transform: scale(1.08) rotate(3deg);
+  background: var(--brand);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .service-card:hover .service-icon-box,
+body.dark-mode .service-card:hover .service-icon-box {
+  background: linear-gradient(135deg, #8B171A 0%, #B82328 50%, #D83137 100%);
+  color: #FFFFFF;
+}
+
+.service-card h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+[data-theme="dark"] .service-card h3,
+body.dark-mode .service-card h3 {
+  color: #FFFFFF;
+}
+
+.service-card p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 22px;
+  font-weight: 400;
+}
+
+.service-explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--brand);
+  transition: gap 0.25s ease, color 0.25s ease;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+[data-theme="dark"] .service-explore-link,
+body.dark-mode .service-explore-link {
+  color: #ff6b6e;
+}
+
+.service-explore-link:hover {
+  gap: 10px;
+  color: var(--brand-hover);
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .service-card-featured {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .service-card {
+    padding: 28px 22px;
+    border-radius: 24px;
+  }
+  .service-card-featured {
+    grid-column: auto;
+    max-width: 100%;
+  }
+}
+
+/* ─── 4-Stage Process Section ("Our Process") ─── */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 .process-card {
@@ -2280,6 +2467,23 @@ body.dark-mode .shop-card-title {
   border: none;
 }
 
+.video-modal-frame.image-frame {
+  aspect-ratio: auto;
+  max-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: #0a0405;
+}
+
+.video-modal-frame.image-frame img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
 /* ─── Scroll Reveal Animations ─── */
 
 /* General section reveal — fade up */
@@ -2419,7 +2623,8 @@ body.dark-mode .shop-card-title {
   .bento-grid,
   .pricing-grid,
   .process-grid,
-  .shop-grid {
+  .shop-grid,
+  .services-grid {
     grid-template-columns: 1fr;
   }
 

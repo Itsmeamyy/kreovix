@@ -88,6 +88,10 @@ const SHORTS_IDS = [
 ];
 
 function openVideo(videoId, title, tag) {
+  openMedia('video', videoId, title, tag);
+}
+
+function openMedia(type, src, title, tag) {
   const modal    = document.getElementById('videoModal');
   const frame    = document.getElementById('videoFrame');
   const titleEl  = document.getElementById('modalTitle');
@@ -95,19 +99,24 @@ function openVideo(videoId, title, tag) {
 
   if (!modal || !frame) return;
 
-  const isShorts = SHORTS_IDS.includes(videoId);
+  if (titleEl) titleEl.innerHTML = title || 'Creative Showcase';
+  if (tagEl) tagEl.innerHTML = tag || 'Portfolio';
 
-  if (titleEl) titleEl.innerHTML = title || 'Video Showcase';
-  if (tagEl) tagEl.innerHTML = tag || 'Kreovix Edit';
+  if (type === 'video') {
+    const isShorts = SHORTS_IDS.includes(src);
+    frame.className = isShorts ? 'video-modal-frame shorts-frame' : 'video-modal-frame';
+    modal.classList.toggle('shorts-mode', isShorts);
 
-  frame.className = isShorts ? 'video-modal-frame shorts-frame' : 'video-modal-frame';
-  modal.classList.toggle('shorts-mode', isShorts);
-
-  frame.innerHTML = `<iframe
-    src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-    allow="autoplay; encrypted-media; picture-in-picture"
-    allowfullscreen
-  ></iframe>`;
+    frame.innerHTML = `<iframe
+      src="https://www.youtube.com/embed/${src}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+    ></iframe>`;
+  } else {
+    frame.className = 'video-modal-frame image-frame';
+    modal.classList.remove('shorts-mode');
+    frame.innerHTML = `<img src="${src}" alt="${title || 'Kreovix Portfolio'}" loading="lazy">`;
+  }
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -136,9 +145,9 @@ document.addEventListener('keydown', e => {
   }
 });
 
-/* ─── 4. VIDEO CATEGORY TABS (SIMPLE / COMPLEX / BRAND) ─── */
+/* ─── 4. PORTFOLIO CATEGORY TABS FILTER ─── */
 function initVideoTabs() {
-  const tabs = document.querySelectorAll('.tab-pill');
+  const tabs = document.querySelectorAll('.work-tabs .tab-pill');
   const cards = document.querySelectorAll('.video-card');
 
   tabs.forEach(tab => {
@@ -149,19 +158,20 @@ function initVideoTabs() {
       const filter = tab.getAttribute('data-filter');
 
       cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        if (filter === 'all' || cat === filter) {
-          card.style.display = 'block';
+        const cat = card.getAttribute('data-category') || '';
+        const cats = cat.split(/\s+/);
+        if (filter === 'all' || cats.includes(filter)) {
+          card.style.display = '';
           setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
-          }, 40);
+          }, 30);
         } else {
           card.style.opacity = '0';
           card.style.transform = 'translateY(15px)';
           setTimeout(() => {
             card.style.display = 'none';
-          }, 200);
+          }, 180);
         }
       });
     });
