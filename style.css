@@ -9,7 +9,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 /* ─── CSS Variables & Design Tokens ─── */
-:root {
+:root,
+[data-theme="light"] {
   --theme: 'light';
 
   /* Normal Mode: Warm Cream Canvas from Logo */
@@ -367,24 +368,63 @@ i,
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--brand-subtle);
   color: var(--brand);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-mid);
   transition: all var(--transition-fast);
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  outline: none;
 }
 
-[data-theme="dark"] .theme-toggle-btn {
+[data-theme="dark"] .theme-toggle-btn,
+body.dark-mode .theme-toggle-btn {
   color: var(--text);
   background: rgba(253, 244, 227, 0.08);
+  border-color: rgba(253, 244, 227, 0.18);
 }
 
 .theme-toggle-btn:hover {
   background: var(--brand);
   color: #FFFFFF;
-  transform: rotate(20deg) scale(1.05);
+  border-color: var(--brand);
+  transform: rotate(20deg) scale(1.06);
+}
+
+/* Icon visibility inside theme toggle */
+.theme-toggle-btn .sun-icon {
+  display: none;
+}
+
+.theme-toggle-btn .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle-btn .sun-icon,
+body.dark-mode .theme-toggle-btn .sun-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle-btn .moon-icon,
+body.dark-mode .theme-toggle-btn .moon-icon {
+  display: none;
+}
+
+.mobile-theme-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 4px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 10px 0;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text);
 }
 
 /* Buttons */
@@ -1175,30 +1215,54 @@ i,
   position: relative;
   background: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.015) 60%,
-    rgba(0, 0, 0, 0.45) 100%
-  ), rgba(16, 16, 20, 0.72);
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(253, 244, 227, 0.7) 60%,
+    rgba(244, 230, 208, 0.8) 100%
+  );
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(106, 16, 18, 0.14);
   border-radius: 32px;
   padding: 38px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow:
-    0 24px 48px -12px rgba(0, 0, 0, 0.7),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 0 24px 0 rgba(255, 255, 255, 0.02);
+    0 20px 48px -12px rgba(106, 16, 18, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 24px 0 rgba(255, 255, 255, 0.4);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.4s ease;
   overflow: visible;
 }
 
+[data-theme="dark"] .pricing-card,
+body.dark-mode .pricing-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.015) 60%,
+    rgba(0, 0, 0, 0.45) 100%
+  ), rgba(16, 16, 20, 0.72);
+  border-color: rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.7),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 24px 0 rgba(255, 255, 255, 0.02);
+}
+
 .pricing-card:hover {
   transform: translateY(-8px);
+  border-color: rgba(106, 16, 18, 0.28);
+  box-shadow:
+    0 30px 60px -15px rgba(106, 16, 18, 0.14),
+    0 0 35px rgba(201, 46, 51, 0.2),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+}
+
+[data-theme="dark"] .pricing-card:hover,
+body.dark-mode .pricing-card:hover {
   border-color: rgba(255, 255, 255, 0.24);
   box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.85),
@@ -1209,12 +1273,30 @@ i,
 .pricing-card.popular {
   border-color: rgba(201, 46, 51, 0.45);
   box-shadow:
+    0 26px 52px -12px rgba(106, 16, 18, 0.12),
+    0 0 35px rgba(201, 46, 51, 0.22),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .pricing-card.popular,
+body.dark-mode .pricing-card.popular {
+  border-color: rgba(201, 46, 51, 0.45);
+  box-shadow:
     0 26px 52px -12px rgba(0, 0, 0, 0.75),
     0 0 35px rgba(201, 46, 51, 0.25),
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.32);
 }
 
 .pricing-card.popular:hover {
+  border-color: rgba(201, 46, 51, 0.7);
+  box-shadow:
+    0 32px 64px -12px rgba(106, 16, 18, 0.18),
+    0 0 45px rgba(201, 46, 51, 0.35),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+}
+
+[data-theme="dark"] .pricing-card.popular:hover,
+body.dark-mode .pricing-card.popular:hover {
   border-color: rgba(201, 46, 51, 0.7);
   box-shadow:
     0 32px 64px -12px rgba(0, 0, 0, 0.9),
@@ -1252,8 +1334,13 @@ i,
   font-size: 1.45rem;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #FFFFFF;
+  color: var(--text);
   letter-spacing: -0.04em;
+}
+
+[data-theme="dark"] .pricing-title,
+body.dark-mode .pricing-title {
+  color: #FFFFFF;
 }
 
 .pricing-desc {
@@ -1273,8 +1360,8 @@ i,
 }
 
 .pricing-pack-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(106, 16, 18, 0.05);
+  border: 1px solid rgba(106, 16, 18, 0.12);
   color: var(--text-muted);
   padding: 7px 16px;
   font-size: 0.8rem;
@@ -1282,7 +1369,21 @@ i,
   transition: all 0.25s ease;
 }
 
+[data-theme="dark"] .pricing-pack-btn,
+body.dark-mode .pricing-pack-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+}
+
 .pricing-pack-btn:hover {
+  background: var(--brand-subtle);
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+[data-theme="dark"] .pricing-pack-btn:hover,
+body.dark-mode .pricing-pack-btn:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
@@ -1306,8 +1407,13 @@ i,
   font-size: 3rem;
   font-weight: 600;
   letter-spacing: -0.055em;
-  color: #FFFFFF;
+  color: var(--text);
   line-height: 1;
+}
+
+[data-theme="dark"] .pricing-price,
+body.dark-mode .pricing-price {
+  color: #FFFFFF;
 }
 
 .pricing-period {
@@ -1320,13 +1426,20 @@ i,
   display: inline-block;
   padding: 5px 14px;
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(106, 16, 18, 0.06);
+  border: 1px solid rgba(106, 16, 18, 0.1);
   color: var(--text-dim);
   font-size: 0.8rem;
   font-weight: 600;
   margin-top: 6px;
   letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .pricing-validity,
+body.dark-mode .pricing-validity {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-dim);
 }
 
 .pricing-features {
@@ -1336,8 +1449,8 @@ i,
   gap: 12px;
   margin: 24px 0;
   padding: 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .pricing-features li {
@@ -1380,16 +1493,31 @@ i,
 }
 
 .pricing-card .btn-outline {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #FFFFFF;
+  background: rgba(106, 16, 18, 0.04);
+  border: 1px solid rgba(106, 16, 18, 0.16);
+  color: var(--text);
   border-radius: var(--radius-full);
 }
 
+[data-theme="dark"] .pricing-card .btn-outline,
+body.dark-mode .pricing-card .btn-outline {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+}
+
 .pricing-card .btn-outline:hover {
+  background: var(--brand-subtle);
+  border-color: var(--brand);
+  color: var(--brand);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .pricing-card .btn-outline:hover,
+body.dark-mode .pricing-card .btn-outline:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
+  color: #FFFFFF;
 }
 
 /* ─── FAQ Accordion ─── */
@@ -1558,13 +1686,15 @@ i,
 
 .shop-card {
   position: relative;
-  background: linear-gradient(145deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(255, 255, 255, 0.015) 60%,
-      rgba(0, 0, 0, 0.45) 100%), rgba(16, 16, 20, 0.72);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(253, 244, 227, 0.7) 60%,
+    rgba(244, 230, 208, 0.8) 100%
+  );
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(106, 16, 18, 0.14);
   border-radius: 32px;
   padding: 24px 20px 32px;
   display: flex;
@@ -1573,17 +1703,41 @@ i,
   justify-content: space-between;
   text-align: center;
   box-shadow:
-    0 24px 48px -12px rgba(0, 0, 0, 0.7),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 0 24px 0 rgba(255, 255, 255, 0.02);
+    0 20px 48px -12px rgba(106, 16, 18, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 24px 0 rgba(255, 255, 255, 0.4);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.4s ease;
   overflow: hidden;
 }
 
+[data-theme="dark"] .shop-card,
+body.dark-mode .shop-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.015) 60%,
+    rgba(0, 0, 0, 0.45) 100%
+  ), rgba(16, 16, 20, 0.72);
+  border-color: rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.7),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 24px 0 rgba(255, 255, 255, 0.02);
+}
+
 .shop-card:hover {
   transform: translateY(-8px);
+  border-color: rgba(106, 16, 18, 0.28);
+  box-shadow:
+    0 30px 60px -15px rgba(106, 16, 18, 0.14),
+    0 0 35px rgba(201, 46, 51, 0.2),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+}
+
+[data-theme="dark"] .shop-card:hover,
+body.dark-mode .shop-card:hover {
   border-color: rgba(255, 255, 255, 0.24);
   box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.85),
@@ -1621,7 +1775,7 @@ i,
 .shop-card-title {
   font-size: 1.18rem;
   font-weight: 500;
-  color: #FFFFFF;
+  color: var(--text);
   letter-spacing: -0.03em;
   margin: 18px 0 22px;
   line-height: 1.35;
@@ -1630,6 +1784,11 @@ i,
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+[data-theme="dark"] .shop-card-title,
+body.dark-mode .shop-card-title {
+  color: #FFFFFF;
 }
 
 .shop-download-btn {
