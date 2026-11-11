@@ -1713,23 +1713,261 @@ em, i,
     display: flex;
   }
 
+  /* Navbar mobile — clean dark, no reddish tint */
+  #navbar {
+    top: 10px;
+    width: calc(100% - 24px);
+    border-radius: var(--radius-lg);
+  }
+
+  .nav-inner {
+    padding: 10px 16px;
+  }
+
+  .nav-logo-img {
+    height: 36px;
+  }
+
+  /* Hero adjustments */
+  .hero-section {
+    padding: 120px 0 40px;
+  }
+
   .hero-headline {
+    font-size: 2.2rem;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-subhead {
+    font-size: 0.95rem;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-pill-badge {
+    font-size: 0.78rem;
+    padding: 6px 14px;
+  }
+
+  .hero-social-proof {
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Featured video — smaller on mobile */
+  .featured-video-wrapper {
+    margin-top: 32px;
+  }
+
+  .featured-video-card {
+    border-radius: 12px;
+  }
+
+  .play-circle-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .play-circle-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .featured-video-caption {
+    bottom: 12px;
+    left: 14px;
+    right: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .featured-video-caption h4 {
+    font-size: 0.95rem;
+  }
+
+  .featured-video-caption span {
+    font-size: 0.72rem;
+  }
+
+  .video-badge {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+
+  /* Work tabs — horizontally scrollable on mobile */
+  .work-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 8px;
+    padding-bottom: 4px;
+    margin-bottom: 28px;
+    flex-wrap: nowrap;
+  }
+
+  .work-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-pill {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+
+  /* Video grid — 2 columns with better card text */
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .video-card {
+    border-radius: 12px;
+  }
+
+  .video-card-overlay {
+    padding: 12px;
+  }
+
+  .video-card-center-play {
+    width: 40px;
+    height: 40px;
+  }
+
+  .video-card-center-play svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .video-card-title {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+
+  .video-card-meta {
+    font-size: 0.65rem;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  /* Section spacing */
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-sub {
+    font-size: 0.95rem;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+  }
+
+  /* Process / Bento cards */
+  .process-card {
+    padding: 28px 22px;
+  }
+
+  .process-number {
+    font-size: 2.2rem;
+  }
+
+  .process-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .bento-card {
+    padding: 24px 20px;
+  }
+
+  /* Pricing */
+  .pricing-card {
+    padding: 28px 22px;
+  }
+
+  .pricing-price {
     font-size: 2.4rem;
   }
 
-  .footer-top {
-    grid-template-columns: 1fr;
+  /* Contact */
+  .contact-section {
+    padding: 64px 0;
   }
 
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+  .contact-card-box {
+    padding: 28px 22px;
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer {
+    padding: 48px 0 28px;
+  }
+
+  /* Mobile menu improvements */
+  .mobile-menu {
+    top: 68px;
+    left: 12px;
+    right: 12px;
+    border-radius: var(--radius-md);
   }
 }
 
 @media (max-width: 480px) {
+  .hero-headline {
+    font-size: 1.85rem;
+  }
+
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 8px;
+  }
+
+  .video-card-title {
+    font-size: 0.75rem;
+  }
+
+  .video-card-meta {
+    font-size: 0.6rem;
+  }
+
+  .video-card-overlay {
+    padding: 8px;
+  }
+
+  .nav-logo-img {
+    height: 30px;
+  }
+
+  .pricing-price {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
   }
 }
