@@ -84,7 +84,10 @@ function closeVideoOnBg(e) {
 }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeVideo();
+  if (e.key === 'Escape') {
+    closeVideo();
+    closeEmailGate();
+  }
 });
 
 /* ─── 4. VIDEO CATEGORY TABS (SIMPLE / COMPLEX / BRAND) ─── */
@@ -223,7 +226,8 @@ function initScrollReveal() {
     '.contact-card-box',
     '.ticker-section',
     '.work-tabs',
-    '.featured-video-wrapper'
+    '.featured-video-wrapper',
+    '.shop-card'
   ];
 
   revealSelectors.forEach(selector => {
@@ -258,4 +262,110 @@ function initScrollReveal() {
   document.querySelectorAll('.reveal').forEach(el => {
     observer.observe(el);
   });
+}
+
+
+/* ─── 10. EMAIL GATE FOR FREE RESOURCES ─── */
+function openEmailGate(resourceSlug, resourceTitle) {
+  const modal = document.getElementById('emailGateModal');
+  const titleEl = document.getElementById('emailGateTitle');
+  const resourceInput = document.getElementById('emailGateResource');
+  const emailInput = document.getElementById('emailGateInput');
+
+  if (!modal) return;
+
+  if (titleEl) titleEl.textContent = `Get: ${resourceTitle}`;
+  if (resourceInput) resourceInput.value = resourceSlug;
+  if (emailInput) emailInput.value = '';
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  // Focus the email input after animation
+  setTimeout(() => {
+    if (emailInput) emailInput.focus();
+  }, 300);
+}
+
+function closeEmailGate() {
+  const modal = document.getElementById('emailGateModal');
+  if (!modal) return;
+
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close email gate when clicking background
+document.addEventListener('click', (e) => {
+  if (e.target === document.getElementById('emailGateModal')) {
+    closeEmailGate();
+  }
+});
+
+function handleEmailGate(e) {
+  e.preventDefault();
+
+  const emailInput = document.getElementById('emailGateInput');
+  const resourceInput = document.getElementById('emailGateResource');
+  const submitBtn = document.getElementById('emailGateSubmit');
+  const modal = document.getElementById('emailGateModal');
+
+  if (!emailInput || !resourceInput) return;
+
+  const email = emailInput.value.trim();
+  const resource = resourceInput.value;
+
+  if (!email) return;
+
+  // Disable button during submission
+  if (submitBtn) {
+    submitBtn.innerHTML = 'Sending…';
+    submitBtn.disabled = true;
+  }
+
+  // Send email to FormSubmit for lead capture
+  const formData = new FormData();
+  formData.append('email', email);
+  formData.append('resource', resource);
+  formData.append('_subject', `New Resource Download: ${resource} 📥`);
+  formData.append('_captcha', 'false');
+  formData.append('_template', 'table');
+
+  fetch('https://formsubmit.co/ajax/teamkreovix@gmail.com', {
+    method: 'POST',
+    body: formData
+  }).then(() => {
+    // Show success and trigger download regardless of email send status
+    triggerDownload(resource);
+  }).catch(() => {
+    // Still trigger download even if email send fails
+    triggerDownload(resource);
+  });
+
+  function triggerDownload(slug) {
+    // Replace modal content with success message
+    const inner = modal.querySelector('.email-gate-inner');
+    if (inner) {
+      inner.innerHTML = `
+        <button class="email-gate-close" onclick="closeEmailGate()" aria-label="Close">&times;</button>
+        <div style="padding: 20px 0;">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.5rem;">&#10003;</div>
+          <h3 style="font-size:1.3rem;font-weight:600;color:var(--text);margin-bottom:8px;">You're all set!</h3>
+          <p style="font-size:0.92rem;color:var(--text-muted);margin-bottom:24px;">Your download is starting now.</p>
+          <a href="/resources/${slug}.pdf" download class="btn btn-primary" style="width:100%;justify-content:center;" onclick="setTimeout(closeEmailGate, 500)">
+            Download PDF
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </a>
+        </div>
+      `;
+    }
+
+    // Auto-trigger download
+    const link = document.createElement('a');
+    link.href = `/resources/${slug}.pdf`;
+    link.download = `${slug}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 }
