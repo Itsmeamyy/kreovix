@@ -1168,6 +1168,7 @@ i,
   align-items: stretch;
   max-width: 1160px;
   margin: 0 auto;
+  padding-top: 18px;
 }
 
 .pricing-card {
@@ -1193,7 +1194,7 @@ i,
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.4s ease;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .pricing-card:hover {
@@ -1226,6 +1227,11 @@ i,
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
   background: linear-gradient(135deg, #8B171A 0%, #B82328 50%, #D83137 100%);
   color: #FFFFFF;
   padding: 6px 18px;
