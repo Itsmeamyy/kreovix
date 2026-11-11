@@ -1726,6 +1726,46 @@ body.dark-mode .pricing-card .btn-outline:hover {
   z-index: 1;
 }
 
+/* ─── Calendly Interactive Embed ─── */
+.calendly-container {
+  max-width: 960px;
+  margin: 0 auto 52px;
+  background: var(--bg-card);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--border-mid);
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg), 0 20px 48px -12px rgba(106, 16, 18, 0.08);
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .calendly-container,
+body.dark-mode .calendly-container {
+  background: rgba(16, 16, 20, 0.75);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.8), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.calendly-inline-widget {
+  min-width: 320px;
+  height: 720px;
+  width: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .calendly-container {
+    border-radius: 24px;
+    margin-bottom: 36px;
+  }
+  .calendly-inline-widget {
+    height: 660px;
+  }
+}
+
 .contact-card-box {
   background: var(--bg-card);
   border: 1px solid var(--border-mid);

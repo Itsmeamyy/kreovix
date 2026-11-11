@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr" data-theme="dark">
+<html lang="en" dir="ltr" data-theme="light">
 <head>
   <!-- ═══════════════════════════════
        SEO & META
@@ -65,7 +65,7 @@
   <script>
     (function() {
       try {
-        var savedTheme = localStorage.getItem('kreovix_theme') || 'dark';
+        var savedTheme = localStorage.getItem('kreovix_theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
         if (savedTheme === 'dark') {
           document.documentElement.classList.add('dark-mode');
@@ -194,7 +194,7 @@
           </svg>
         </button>
 
-        <a href="#contact" class="btn btn-sm btn-primary">
+        <a href="https://calendly.com/kreovix/new-meeting?back=1&month=2026-11" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
           Book a Call
         </a>
 
@@ -236,7 +236,7 @@
         </svg>
       </button>
     </div>
-    <a href="#contact" class="btn btn-primary" onclick="closeMobileMenu()">Book a Call →</a>
+    <a href="https://calendly.com/kreovix/new-meeting?back=1&month=2026-11" target="_blank" rel="noopener noreferrer" class="btn btn-primary" onclick="closeMobileMenu()">Book a Call →</a>
   </div>
 
   <!-- ════════════════════════════════
@@ -263,7 +263,7 @@
       </p>
 
       <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary btn-lg">
+        <a href="https://calendly.com/kreovix/new-meeting?back=1&month=2026-11" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
           Book a 15-min Call
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
@@ -655,7 +655,7 @@
 
           <div class="pricing-actions">
             <a href="https://wa.me/918127020387?text=Hi%20Kreovix%2C%20I%20want%20to%20get%20started%20with%20the%20Simple%20Video%20Pack" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy Now</a>
-            <a href="#contact" class="btn btn-outline">Book a Call</a>
+            <a href="https://calendly.com/kreovix/new-meeting?back=1&month=2026-11" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Book a Call</a>
           </div>
         </div>
 
@@ -692,7 +692,7 @@
 
           <div class="pricing-actions">
             <a href="https://wa.me/918127020387?text=Hi%20Kreovix%2C%20I%20want%20to%20get%20started%20with%20the%20Complex%20Video%20Pack" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy Now</a>
-            <a href="#contact" class="btn btn-outline">Book a Call</a>
+            <a href="https://calendly.com/kreovix/new-meeting?back=1&month=2026-11" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Book a Call</a>
           </div>
         </div>
 
@@ -718,7 +718,7 @@
           </ul>
 
           <div class="pricing-actions">
-            <a href="#contact" class="btn btn-primary">Book Strategy Call</a>
+            <a href="https://calendly.com/kreovix/new-meeting?back=1&month=2026-11" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Strategy Call</a>
             <a href="https://wa.me/918127020387?text=Hi%20Kreovix%2C%20I%20want%20to%20discuss%20a%20Full%20Brand%20Campaign" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
           </div>
         </div>
@@ -877,17 +877,27 @@
   </div>
 
   <!-- ════════════════════════════════
-       CONTACT SECTION
+       BOOK A CALL & CONTACT SECTION
   ════════════════════════════════ -->
   <section class="contact-section" id="contact">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Get Started</span>
-        <h2 class="section-title">Ready to build something <em>remarkable?</em></h2>
-        <p class="section-sub">Tell us about your project and we’ll put together a tailored proposal within 48 hours.</p>
+        <span class="eyebrow">Book a Call</span>
+        <h2 class="section-title">Schedule a 15-Minute <em>Intro Call</em></h2>
+        <p class="section-sub">Pick a convenient time directly on our calendar below, or drop us a project inquiry.</p>
+      </div>
+
+      <!-- Calendly Interactive Booking Widget -->
+      <div class="calendly-container">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/kreovix/new-meeting?back=1&month=2026-11&hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       </div>
 
       <div class="contact-card-box">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: 6px;">Prefer to send a message?</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Fill out your details below and we’ll get back to you with a tailored proposal within 24-48 hours.</p>
+        </div>
         <form class="contact-form" id="contact-form" action="https://formsubmit.co/teamkreovix@gmail.com" method="POST" onsubmit="handleSubmit(event)">
           <input type="hidden" name="_subject" value="New Kreovix Video Inquiry 🚀">
           <input type="hidden" name="_next" value="https://www.kreovix.com/?sent=1">

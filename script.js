@@ -55,7 +55,7 @@ function initTheme() {
     saved = localStorage.getItem('kreovix_theme');
   } catch (e) {}
 
-  const theme = saved || 'dark';
+  const theme = saved || 'light';
   applyTheme(theme);
 
   document.querySelectorAll('.theme-toggle-btn, #theme-toggle, #themeToggleBtn').forEach(btn => {

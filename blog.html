@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="dark">
+<html lang="en" dir="ltr" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +10,21 @@
   <meta name="author" content="Kreovix">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#6A1012">
+
+  <!-- Instant Theme Preload (Prevents FOUC) -->
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('kreovix_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -188,7 +203,7 @@
     <div class="sp-inner sp-cta-block">
       <h2>Want tailored marketing advice for your business?</h2>
       <p>Skip the blog — talk directly to our team about what works for your specific industry and market.</p>
-      <a href="/#contact" class="btn btn-primary">Book a Free Strategy Call</a>
+      <a href="https://calendly.com/kreovix/new-meeting?back=1&month=2026-11" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a Free Strategy Call</a>
     </div>
   </section>
 
