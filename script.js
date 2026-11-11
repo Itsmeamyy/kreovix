@@ -268,15 +268,24 @@ function initScrollReveal() {
 /* ─── 10. EMAIL GATE FOR FREE RESOURCES ─── */
 function openEmailGate(resourceSlug, resourceTitle) {
   const modal = document.getElementById('emailGateModal');
+  const body = document.getElementById('emailGateBody');
+  const success = document.getElementById('emailGateSuccess');
   const titleEl = document.getElementById('emailGateTitle');
   const resourceInput = document.getElementById('emailGateResource');
   const emailInput = document.getElementById('emailGateInput');
+  const submitBtn = document.getElementById('emailGateSubmit');
 
   if (!modal) return;
 
+  if (body) body.style.display = 'block';
+  if (success) success.style.display = 'none';
   if (titleEl) titleEl.textContent = `Get: ${resourceTitle}`;
   if (resourceInput) resourceInput.value = resourceSlug;
   if (emailInput) emailInput.value = '';
+  if (submitBtn) {
+    submitBtn.innerHTML = 'Get Access &rarr;';
+    submitBtn.disabled = false;
+  }
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -308,7 +317,6 @@ function handleEmailGate(e) {
   const emailInput = document.getElementById('emailGateInput');
   const resourceInput = document.getElementById('emailGateResource');
   const submitBtn = document.getElementById('emailGateSubmit');
-  const modal = document.getElementById('emailGateModal');
 
   if (!emailInput || !resourceInput) return;
 
@@ -335,29 +343,21 @@ function handleEmailGate(e) {
     method: 'POST',
     body: formData
   }).then(() => {
-    // Show success and trigger download regardless of email send status
     triggerDownload(resource);
   }).catch(() => {
-    // Still trigger download even if email send fails
     triggerDownload(resource);
   });
 
   function triggerDownload(slug) {
-    // Replace modal content with success message
-    const inner = modal.querySelector('.email-gate-inner');
-    if (inner) {
-      inner.innerHTML = `
-        <button class="email-gate-close" onclick="closeEmailGate()" aria-label="Close">&times;</button>
-        <div style="padding: 20px 0;">
-          <div style="width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.5rem;">&#10003;</div>
-          <h3 style="font-size:1.3rem;font-weight:600;color:var(--text);margin-bottom:8px;">You're all set!</h3>
-          <p style="font-size:0.92rem;color:var(--text-muted);margin-bottom:24px;">Your download is starting now.</p>
-          <a href="/resources/${slug}.pdf" download class="btn btn-primary" style="width:100%;justify-content:center;" onclick="setTimeout(closeEmailGate, 500)">
-            Download PDF
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          </a>
-        </div>
-      `;
+    const body = document.getElementById('emailGateBody');
+    const success = document.getElementById('emailGateSuccess');
+    const downloadLink = document.getElementById('emailGateDownloadLink');
+
+    if (body) body.style.display = 'none';
+    if (success) success.style.display = 'block';
+    if (downloadLink) {
+      downloadLink.href = `/resources/${slug}.pdf`;
+      downloadLink.download = `${slug}.pdf`;
     }
 
     // Auto-trigger download
