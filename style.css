@@ -1978,12 +1978,15 @@ em, i,
     padding: 48px 0 28px;
   }
 
-  /* Mobile menu improvements */
+  /* Mobile menu — full-screen overlay */
   .mobile-menu {
-    top: 68px;
-    left: 12px;
-    right: 12px;
-    border-radius: var(--radius-md);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    background: var(--bg);
+    padding-top: 100px;
   }
 }
 
