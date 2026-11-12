@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initScrollReveal();
   initHeroVideoScroll3D();
+  initFolderInteractions();
 });
 
 /* ─── 1. THEME SWITCHER (Dark & Light Mode) ─── */
@@ -481,4 +482,19 @@ function handleEmailGate(e) {
     link.click();
     document.body.removeChild(link);
   }
+}
+
+/* ─── 11. INTERACTIVE 3D FOLDER COMPONENT (Mobile & Touch Support) ─── */
+function initFolderInteractions() {
+  document.querySelectorAll('.folder-wrapper').forEach(wrapper => {
+    wrapper.addEventListener('click', (e) => {
+      // If clicking download button, let it trigger modal
+      if (e.target.closest('.shop-download-btn')) return;
+
+      const folder = wrapper.querySelector('.folder');
+      if (folder) {
+        folder.classList.toggle('is-open');
+      }
+    });
+  });
 }
