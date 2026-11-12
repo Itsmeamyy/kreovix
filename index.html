@@ -129,7 +129,27 @@
   <nav id="navbar">
     <div class="nav-inner">
       <a href="#" class="nav-logo" aria-label="Kreovix Home">
-        <img src="/kreovix-logo.png" alt="Kreovix" class="nav-logo-img" height="32">
+        <div class="nav-electric-logo-wrap"
+             data-electric-logo
+             data-src="/logo.svg"
+             data-color="#ecc7ff"
+             data-glow-color="#8b1111"
+             data-scale="0.85"
+             data-strands="2"
+             data-bend="0.2"
+             data-crackle="1.2"
+             data-arcs="1"
+             data-speed="2.5"
+             data-interactive="true"
+             data-intensity="0.9"
+             data-glow="1"
+             data-thickness="0.6"
+             data-flicker="0.5"
+             data-fill="1"
+             data-cursor-intensity="0.5"
+             data-cursor-radius="40">
+          <img src="/kreovix-logo.png" alt="Kreovix" class="nav-logo-img" height="32">
+        </div>
       </a>
 
       <!-- Center Links with Dropdowns -->
@@ -879,6 +899,75 @@
   </section>
 
   <!-- ════════════════════════════════
+       INTERACTIVE BRAND LAB (React Bits ElectricLogo & GlowCursor)
+  ════════════════════════════════ -->
+  <section class="section interactive-section" id="brand-lab">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Interactive Experience</span>
+        <h2 class="section-title">Built with <em>High-Voltage</em> Energy</h2>
+        <p class="section-sub">Experience the creative pulse behind Kreovix. Move your cursor to trail golden light, hover over the logo to discharge arcs, and click anywhere for spark bursts.</p>
+      </div>
+
+      <!-- React Bits GlowCursor Container (500px, theme: dark) -->
+      <div class="glow-cursor-stage-wrapper" style="position: relative; width: 100%; height: 500px;">
+        <div class="glow-cursor-root"
+             data-glow-cursor
+             data-color="#ffe9a5"
+             data-intensity="1.3"
+             data-trail-width="3"
+             data-linger="1.4"
+             data-glow="1.2"
+             data-click-burst="true"
+             data-theme="dark"
+             style="position: relative; width: 100%; height: 500px;">
+
+          <!-- React Bits ElectricLogo Container (480px, interactive) -->
+          <div class="electric-logo-stage-wrapper" style="width: 100%; height: 480px; position: relative;">
+            <div class="electric-logo-root"
+                 data-electric-logo
+                 data-src="/logo.svg"
+                 data-color="#ecc7ff"
+                 data-glow-color="#8b1111"
+                 data-scale="0.7"
+                 data-strands="3"
+                 data-bend="0.25"
+                 data-crackle="1.5"
+                 data-arcs="1"
+                 data-speed="2.5"
+                 data-interactive="true"
+                 data-intensity="1"
+                 data-glow="1"
+                 data-thickness="0.7"
+                 data-flicker="0.6"
+                 data-fill="0"
+                 data-cursor-intensity="0.45"
+                 data-cursor-radius="65"
+                 style="width: 100%; height: 100%; position: relative;">
+            </div>
+          </div>
+
+          <!-- Interactive HUD Overlay -->
+          <div class="interactive-stage-hud">
+            <div class="stage-hud-badge">
+              <span class="hud-pulse-dot"></span>
+              <span>Plasma Engine &middot; Active</span>
+            </div>
+            <div class="stage-hud-instruction">
+              <span class="hud-key">Move</span> Fluid Light Trail
+              <span class="hud-sep">&middot;</span>
+              <span class="hud-key">Click</span> Spark Burst
+              <span class="hud-sep">&middot;</span>
+              <span class="hud-key">Hover</span> Electric Discharge
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
        FREQUENTLY ASKED QUESTIONS (Accordion)
   ════════════════════════════════ -->
   <section class="section" id="faq">
@@ -1263,6 +1352,8 @@
     </div>
   </div>
 
+  <script src="electric-logo.js" defer></script>
+  <script src="glow-cursor.js" defer></script>
   <script src="script.js"></script>
 </body>
 </html>

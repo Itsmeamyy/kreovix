@@ -256,6 +256,32 @@ i,
   transition: opacity var(--transition-fast);
 }
 
+.nav-electric-logo-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  width: 145px;
+  overflow: visible;
+}
+
+.nav-electric-logo-wrap .nav-logo-img {
+  height: 28px;
+  width: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-electric-logo-wrap canvas.electric-logo-canvas {
+  position: absolute !important;
+  inset: -12px -18px !important;
+  width: calc(100% + 36px) !important;
+  height: calc(100% + 24px) !important;
+  pointer-events: auto !important;
+  z-index: 2;
+}
+
 [data-theme="dark"] .nav-logo-img {
   filter: brightness(0) invert(1);
 }
@@ -3366,5 +3392,135 @@ body.dark-mode .shop-card-title {
 
   .section-title {
     font-size: 1.6rem;
+  }
+}
+
+/* ════════════════════════════════
+   REACT BITS INTERACTIVE SHOWCASE (ElectricLogo & GlowCursor)
+════════════════════════════════ */
+.interactive-section {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0 100px;
+}
+
+.glow-cursor-stage-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 50%, #1e090c 0%, #0d0405 60%, #050202 100%);
+  border: 1px solid rgba(139, 23, 26, 0.45);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), inset 0 0 100px rgba(139, 23, 26, 0.18);
+  user-select: none;
+  cursor: crosshair;
+}
+
+.glow-cursor-root {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.electric-logo-stage-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.electric-logo-root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.interactive-stage-hud {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.stage-hud-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(139, 23, 26, 0.35);
+  border: 1px solid rgba(236, 199, 255, 0.35);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ecc7ff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hud-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ecc7ff;
+  box-shadow: 0 0 10px #ecc7ff;
+  animation: hudPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes hudPulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.stage-hud-instruction {
+  font-size: 0.85rem;
+  color: rgba(253, 244, 227, 0.7);
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.hud-key {
+  color: #ffe9a5;
+  font-weight: 600;
+}
+
+.hud-sep {
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  .glow-cursor-stage-wrapper,
+  .glow-cursor-root {
+    height: 380px !important;
+  }
+  .electric-logo-stage-wrapper {
+    height: 360px !important;
+  }
+  .stage-hud-instruction {
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+  .nav-electric-logo-wrap {
+    width: 120px;
   }
 }
