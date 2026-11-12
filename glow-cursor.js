@@ -418,3 +418,4 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof window !== 'undefined') {
   window.GlowCursor = GlowCursor;
 }
+

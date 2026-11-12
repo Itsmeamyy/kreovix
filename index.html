@@ -465,8 +465,28 @@
         <button class="tab-pill" data-filter="marketing-campaigns">Marketing Campaigns</button>
       </div>
 
+      <!-- ════════════════════════════════
+           REACT BITS FLEX CAROUSEL (Infinite 3D Liquid-Glass Row)
+      ════════════════════════════════ -->
+      <div class="flex-carousel-showcase-wrap">
+        <div id="portfolioFlexCarousel"
+             data-flex-carousel
+             data-autoplay="true"
+             data-autoplay-speed="0.9"
+             data-capture-wheel="true"
+             data-bend="0.18">
+        </div>
+      </div>
+
+      <!-- Grid View Expand Toggle -->
+      <div class="work-view-toggle-row">
+        <button class="btn btn-sm btn-outline work-grid-toggle-btn" id="toggleGridBtn" onclick="toggleWorkGrid()">
+          <span>Browse All 16 Projects in Grid</span> &darr;
+        </button>
+      </div>
+
       <!-- Video / Creative Grid -->
-      <div class="video-grid">
+      <div class="video-grid grid-collapsed">
 
         <!-- 1. Inkkari Tattoo Arts (Video Production & Editing) -->
         <div class="video-card" data-category="video-production video-editing" onclick="openMedia('video','ZWVE7T4TcM0','Inkkari Tattoo Arts &mdash; Studio Reel','Video Production')">
@@ -1354,6 +1374,7 @@
 
   <script src="electric-logo.js" defer></script>
   <script src="glow-cursor.js" defer></script>
+  <script src="flex-carousel.js" defer></script>
   <script src="script.js"></script>
 </body>
 </html>

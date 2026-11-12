@@ -159,6 +159,11 @@ function initVideoTabs() {
 
       const filter = tab.getAttribute('data-filter');
 
+      // Sync with React Bits FlexCarousel
+      if (window.kreovixFlexCarousel) {
+        window.kreovixFlexCarousel.filter(filter);
+      }
+
       cards.forEach(card => {
         const cat = card.getAttribute('data-category') || '';
         const cats = cat.split(/\s+/);
@@ -178,6 +183,16 @@ function initVideoTabs() {
       });
     });
   });
+}
+
+function toggleWorkGrid() {
+  const grid = document.querySelector('.video-grid');
+  const btn = document.getElementById('toggleGridBtn');
+  if (!grid || !btn) return;
+  const isExpanded = grid.classList.toggle('grid-expanded');
+  btn.innerHTML = isExpanded
+    ? '<span>Collapse Grid View</span> &uarr;'
+    : '<span>Browse All 16 Projects in Grid</span> &darr;';
 }
 
 /* ─── 5. PRICING PACK TOGGLE ─── */
