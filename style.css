@@ -18,8 +18,8 @@
   --bg-alt: #fffcf6ff;
   --bg-card: #fffcf6ff;
   --bg-card-hover: #fffcf6ff;
-  --bg-nav: rgba(253, 244, 227, 0.82);
-  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-nav: rgba(255, 252, 246, 0.85);
+  --bg-glass: rgba(255, 252, 246, 0.75);
 
   /* Brand Palette from Logo */
   --brand: #6A1012;
@@ -33,7 +33,7 @@
   --text-dim: #542527;
   --text-muted: #7A4B4D;
   --text-faint: #A3787A;
-  --text-inverse: #FDF4E3;
+  --text-inverse: #fffcf6ff;
 
   /* Borders & Dividers */
   --border: rgba(106, 16, 18, 0.12);
@@ -47,9 +47,9 @@
   --green-bg: rgba(21, 128, 61, 0.12);
 
   /* Gradient Tokens */
-  --gradient-hero: linear-gradient(180deg, #FDF4E3 0%, #F0DFC5 50%, #FDF4E3 100%);
+  --gradient-hero: linear-gradient(180deg, #fffcf6ff 0%, #fffcf6ff 100%);
   --gradient-section: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 50%, var(--bg) 100%);
-  --gradient-card: linear-gradient(145deg, rgba(106, 16, 18, 0.03) 0%, rgba(253, 244, 227, 0.5) 100%);
+  --gradient-card: linear-gradient(145deg, rgba(106, 16, 18, 0.02) 0%, rgba(255, 252, 246, 0.5) 100%);
   --gradient-brand: linear-gradient(135deg, #6A1012 0%, #9E2226 50%, #C92E33 100%);
   --gradient-glow: radial-gradient(ellipse at center, rgba(106, 16, 18, 0.15) 0%, transparent 70%);
 
@@ -1146,9 +1146,9 @@ body.dark-mode .theme-toggle-btn .moon-icon {
 .service-card {
   position: relative;
   background: linear-gradient(145deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(253, 244, 227, 0.7) 60%,
-      rgba(244, 230, 208, 0.8) 100%);
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 252, 246, 0.85) 60%,
+      rgba(255, 252, 246, 0.95) 100%);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(106, 16, 18, 0.14);
@@ -1292,9 +1292,9 @@ body.dark-mode .service-explore-link {
 .process-card {
   position: relative;
   background: linear-gradient(145deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(253, 244, 227, 0.7) 60%,
-      rgba(244, 230, 208, 0.8) 100%);
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 252, 246, 0.85) 60%,
+      rgba(255, 252, 246, 0.95) 100%);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(106, 16, 18, 0.14);
@@ -1389,9 +1389,9 @@ body.dark-mode .process-card h3 {
 .bento-card {
   position: relative;
   background: linear-gradient(145deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(253, 244, 227, 0.7) 60%,
-      rgba(244, 230, 208, 0.8) 100%);
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 252, 246, 0.85) 60%,
+      rgba(255, 252, 246, 0.95) 100%);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(106, 16, 18, 0.14);
@@ -1509,9 +1509,9 @@ body.dark-mode .bento-card h3 {
 .pricing-card {
   position: relative;
   background: linear-gradient(145deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(253, 244, 227, 0.7) 60%,
-      rgba(244, 230, 208, 0.8) 100%);
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 252, 246, 0.85) 60%,
+      rgba(255, 252, 246, 0.95) 100%);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(106, 16, 18, 0.14);
@@ -1978,9 +1978,9 @@ body.dark-mode .pricing-card .btn-outline:hover {
 .shop-card {
   position: relative;
   background: linear-gradient(145deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(253, 244, 227, 0.7) 60%,
-      rgba(244, 230, 208, 0.8) 100%);
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 252, 246, 0.85) 60%,
+      rgba(255, 252, 246, 0.95) 100%);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(106, 16, 18, 0.14);
