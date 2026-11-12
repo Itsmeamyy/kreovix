@@ -1,0 +1,168 @@
+/**
+ * FlexCarousel.css — Styles for React Bits @react-bits/FlexCarousel
+ */
+
+.flex-carousel-showcase-wrap {
+  position: relative;
+  width: 100%;
+  margin: 28px 0 20px;
+}
+
+.flex-carousel-container {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  overflow: hidden;
+  padding: 20px 0 30px;
+}
+
+.flex-carousel-viewport {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: visible;
+  cursor: grab;
+  perspective: 1200px;
+  -webkit-perspective: 1200px;
+}
+
+.flex-carousel-container.is-dragging .flex-carousel-viewport {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.flex-carousel-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.flex-carousel-card {
+  flex-shrink: 0;
+  width: 280px;
+  height: 490px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.flex-carousel-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--border, rgba(255,255,255,0.1));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flex-carousel-card.is-center-focus .flex-carousel-card-inner {
+  border-color: rgba(139, 23, 26, 0.7);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(139, 23, 26, 0.45);
+}
+
+.flex-carousel-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.flex-carousel-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  color: #fff;
+}
+
+.flex-card-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(253, 244, 227, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.flex-carousel-play-btn {
+  align-self: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8B171A 0%, #A61E22 50%, #C92E33 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(139, 23, 26, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flex-carousel-card:hover .flex-carousel-play-btn {
+  transform: scale(1.15);
+  box-shadow: 0 12px 30px rgba(139, 23, 26, 0.8);
+}
+
+.flex-carousel-bottom-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.flex-carousel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.flex-carousel-meta {
+  font-size: 0.76rem;
+  color: rgba(253, 244, 227, 0.75);
+}
+
+.flex-carousel-liquid-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.flex-carousel-edge-left {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg, #fffcf6) 0%, rgba(255, 252, 246, 0.6) 35%, transparent 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  mask-image: linear-gradient(90deg, black 0%, black 35%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, black 0%, black 35%, transparent 100%);
+}
+
+.flex-carousel-edge-right {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg, #fffcf6) 0%, rgba(255, 252, 246, 0.6) 35%, transparent 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  mask-image: linear-gradient(270deg, black 0%, black 35%, transparent 100%);
+  -webkit-mask-image: linear-gradient(270deg, black 0%, black 35%, transparent 100%);
+}

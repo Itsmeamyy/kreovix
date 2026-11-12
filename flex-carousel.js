@@ -187,16 +187,22 @@ class FlexCarousel {
 
   updateMetrics() {
     const isMobile = window.innerWidth <= 768;
-    this.cardWidth = isMobile ? Math.min(270, window.innerWidth - 64) : this.options.cardWidth;
-    this.gap = isMobile ? 16 : this.options.gap;
+    this.cardWidth = isMobile ? Math.min(250, window.innerWidth - 64) : (this.options.cardWidth || 280);
+    this.cardHeight = isMobile ? Math.round(this.cardWidth * 16 / 9) : 490;
+    this.gap = isMobile ? 16 : (this.options.gap || 22);
     this.itemWidth = this.cardWidth + this.gap;
     this.cycleWidth = this.singleSetCount * this.itemWidth;
-    this.viewportWidth = this.viewport.offsetWidth || this.container.offsetWidth;
+    this.viewportWidth = this.viewport.offsetWidth || this.container.offsetWidth || window.innerWidth;
 
-    // Apply width to cards
+    if (this.viewport) {
+      this.viewport.style.height = `${this.cardHeight + 30}px`;
+    }
+
+    // Apply width and height to cards
     if (this.cards) {
       this.cards.forEach(card => {
         card.style.width = `${this.cardWidth}px`;
+        card.style.height = `${this.cardHeight}px`;
         card.style.marginRight = `${this.gap}px`;
       });
     }

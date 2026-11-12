@@ -1,0 +1,19 @@
+/**
+ * ElectricLogo.css — Styles for React Bits @react-bits/ElectricLogo
+ */
+
+.electric-logo-stage {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.electric-logo-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
