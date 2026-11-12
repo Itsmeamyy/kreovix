@@ -236,9 +236,6 @@ class FlexCarousel {
   buildDOM() {
     this.container.classList.add('flex-carousel-container');
     this.container.innerHTML = `
-      <div class="flex-carousel-liquid-edge flex-carousel-edge-left" aria-hidden="true"></div>
-      <div class="flex-carousel-liquid-edge flex-carousel-edge-right" aria-hidden="true"></div>
-
       <div class="flex-carousel-viewport">
         <div class="flex-carousel-track"></div>
       </div>
@@ -558,11 +555,10 @@ class FlexCarousel {
       const clampedDist = Math.max(-1.8, Math.min(1.8, distFromCenter));
       const absDist = Math.abs(clampedDist);
 
-      // 3D Liquid-Glass Flex Transform
-      const scale = Math.max(0.86, 1.05 - absDist * 0.12);
-      const rotateY = -clampedDist * 18 * (bendFactor / 0.18);
-      const rotateZ = -clampedDist * 1.5;
-      const opacity = Math.max(0.4, 1 - Math.pow(absDist * 0.52, 1.8));
+      // 3D Perspective Card Transform (Sharp & Fully Visible)
+      const scale = Math.max(0.92, 1.04 - absDist * 0.08);
+      const rotateY = -clampedDist * 14 * (bendFactor / 0.18);
+      const rotateZ = -clampedDist * 1.0;
 
       // Center card elevation glow
       const isCenter = absDist < 0.35;
@@ -571,7 +567,7 @@ class FlexCarousel {
       const inner = card.querySelector('.flex-carousel-card-inner');
       if (inner) {
         inner.style.transform = `perspective(1000px) scale(${scale}) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
-        inner.style.opacity = opacity.toFixed(2);
+        inner.style.opacity = '1';
       }
     }
   }

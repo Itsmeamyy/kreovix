@@ -3370,132 +3370,6 @@ body.dark-mode .shop-card-title {
 }
 
 /* ════════════════════════════════
-   REACT BITS INTERACTIVE SHOWCASE (ElectricLogo & GlowCursor)
-════════════════════════════════ */
-.interactive-section {
-  position: relative;
-  overflow: hidden;
-  padding: 80px 0 100px;
-}
-
-.glow-cursor-stage-wrapper {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  border-radius: 24px;
-  overflow: hidden;
-  background: radial-gradient(ellipse at 50% 50%, #1e090c 0%, #0d0405 60%, #050202 100%);
-  border: 1px solid rgba(139, 23, 26, 0.45);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), inset 0 0 100px rgba(139, 23, 26, 0.18);
-  user-select: none;
-  cursor: crosshair;
-}
-
-.glow-cursor-root {
-  position: relative;
-  width: 100%;
-  height: 500px;
-}
-
-.stage-brand-centerpiece {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 5;
-  text-align: center;
-  padding: 20px;
-}
-
-.stage-brand-centerpiece img {
-  max-width: 380px;
-  width: 75%;
-  height: auto;
-  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.7));
-}
-
-.interactive-stage-hud {
-  position: absolute;
-  bottom: 22px;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  pointer-events: none;
-  z-index: 20;
-}
-
-.stage-hud-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(139, 23, 26, 0.35);
-  border: 1px solid rgba(236, 199, 255, 0.35);
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #ecc7ff;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.hud-pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #ecc7ff;
-  box-shadow: 0 0 10px #ecc7ff;
-  animation: hudPulse 1.8s infinite ease-in-out;
-}
-
-@keyframes hudPulse {
-  0%, 100% { opacity: 0.4; transform: scale(0.85); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
-.stage-hud-instruction {
-  font-size: 0.85rem;
-  color: rgba(253, 244, 227, 0.7);
-  font-family: var(--font-sans);
-  letter-spacing: 0.01em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-  padding: 0 16px;
-}
-
-.hud-key {
-  color: #ffe9a5;
-  font-weight: 600;
-}
-
-.hud-sep {
-  opacity: 0.4;
-}
-
-@media (max-width: 768px) {
-  .glow-cursor-stage-wrapper,
-  .glow-cursor-root {
-    height: 380px !important;
-  }
-  .stage-hud-instruction {
-    font-size: 0.75rem;
-    gap: 4px;
-  }
-}
-
-/* ════════════════════════════════
    REACT BITS FLEX CAROUSEL (@react-bits/FlexCarousel-JS-CSS)
 ════════════════════════════════ */
 .flex-carousel-showcase-wrap {
@@ -3653,42 +3527,6 @@ body.dark-mode .shop-card-title {
   font-family: var(--font-sans);
 }
 
-/* Liquid Glass Edge Filters */
-.flex-carousel-liquid-edge {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 140px;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.flex-carousel-edge-left {
-  left: 0;
-  background: linear-gradient(90deg, var(--bg) 0%, rgba(255, 252, 246, 0.6) 35%, transparent 100%);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  mask-image: linear-gradient(90deg, black 0%, black 35%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, black 0%, black 35%, transparent 100%);
-}
-
-.flex-carousel-edge-right {
-  right: 0;
-  background: linear-gradient(270deg, var(--bg) 0%, rgba(255, 252, 246, 0.6) 35%, transparent 100%);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  mask-image: linear-gradient(270deg, black 0%, black 35%, transparent 100%);
-  -webkit-mask-image: linear-gradient(270deg, black 0%, black 35%, transparent 100%);
-}
-
-[data-theme="dark"] .flex-carousel-edge-left {
-  background: linear-gradient(90deg, var(--bg) 0%, rgba(11, 3, 4, 0.7) 35%, transparent 100%);
-}
-
-[data-theme="dark"] .flex-carousel-edge-right {
-  background: linear-gradient(270deg, var(--bg) 0%, rgba(11, 3, 4, 0.7) 35%, transparent 100%);
-}
-
 /* Carousel Controls & Indicator */
 .flex-carousel-controls {
   display: flex;
@@ -3747,30 +3585,9 @@ body.dark-mode .shop-card-title {
   50% { transform: scale(1.2); opacity: 1; }
 }
 
-/* Work Grid Subheader */
-.work-grid-header {
-  margin: 50px 0 24px;
-  text-align: center;
-}
-
-.work-grid-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 6px;
-}
-
-.work-grid-sub {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
 @media (max-width: 768px) {
   .flex-carousel-card {
     width: 250px !important;
-  }
-  .flex-carousel-liquid-edge {
-    width: 60px;
   }
   .flex-carousel-arrow {
     width: 38px;
