@@ -736,7 +736,7 @@ body.dark-mode .theme-toggle-btn .moon-icon {
   letter-spacing: 2px;
 }
 
-/* ─── Featured Showcase Video Card (EditLobby Style — Full Width Cinematic) ─── */
+/* ─── Featured Showcase Video Card (3D Scroll Perspective Animation) ─── */
 .featured-video-wrapper {
   margin-top: 52px;
   position: relative;
@@ -746,6 +746,8 @@ body.dark-mode .theme-toggle-btn .moon-icon {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  perspective: 1400px;
+  perspective-origin: center top;
 }
 
 .featured-video-card {
@@ -757,7 +759,22 @@ body.dark-mode .theme-toggle-btn .moon-icon {
   overflow: hidden;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(106, 16, 18, 0.1);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(106, 16, 18, 0.1);
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-glare-3d {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.04) 35%, transparent 70%);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
 }
 
 .featured-video-thumb {
@@ -2492,22 +2509,32 @@ body.dark-mode .shop-card-title {
   transform: translateY(0);
 }
 
-/* Featured video — EditLobby "page turn" 3D flip reveal */
+/* Featured video — 3D Top-to-Down Scroll Reveal (Home Page) */
 .featured-video-wrapper {
-  perspective: 1200px;
+  perspective: 1400px;
+  perspective-origin: center top;
 }
 
 .featured-video-wrapper .featured-video-card {
-  opacity: 0;
-  transform: rotateX(12deg) scale(0.88) translateY(60px);
-  transform-origin: center bottom;
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: perspective(1400px) rotateX(22deg) translateY(-45px) scale(0.92);
+  transform-origin: center top;
 }
 
-.featured-video-wrapper.visible .featured-video-card {
-  opacity: 1;
-  transform: rotateX(0deg) scale(1) translateY(0);
+@media (max-width: 768px) {
+  .featured-video-wrapper .featured-video-card {
+    transform: perspective(1200px) rotateX(14deg) translateY(-25px) scale(0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-video-wrapper .featured-video-card {
+    transform: none !important;
+    transition: none !important;
+  }
+  .video-glare-3d {
+    display: none;
+  }
 }
 
 /* Staggered card reveals for video grid */

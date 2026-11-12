@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPricingToggle();
   initMobileMenu();
   initScrollReveal();
+  initHeroVideoScroll3D();
 });
 
 /* ─── 1. THEME SWITCHER (Dark & Light Mode) ─── */
@@ -282,7 +283,6 @@ function initScrollReveal() {
     '.contact-card-box',
     '.ticker-section',
     '.work-tabs',
-    '.featured-video-wrapper',
     '.shop-card'
   ];
 
@@ -318,6 +318,63 @@ function initScrollReveal() {
   document.querySelectorAll('.reveal').forEach(el => {
     observer.observe(el);
   });
+}
+
+/* ─── 9b. HERO VIDEO 3D SCROLL ANIMATION (Home Page) ─── */
+function initHeroVideoScroll3D() {
+  const wrapper = document.querySelector('.featured-video-wrapper');
+  if (!wrapper) return;
+  const card = wrapper.querySelector('.featured-video-card');
+  if (!card) return;
+  const glare = card.querySelector('.video-glare-3d');
+
+  let ticking = false;
+
+  function update3D() {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    const isMobile = window.innerWidth <= 768;
+
+    // Scroll distance over which the video tilts down from 3D top to flat
+    const maxScroll = isMobile ? 260 : 380;
+    const progress = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+    // Smooth cubic curve for realistic momentum
+    const eased = 1 - Math.pow(1 - progress, 2.6);
+
+    // Initial 3D tilt: top-anchored, tilted backwards at the top and elevated
+    const startRotate = isMobile ? 14 : 22;
+    const startTranslateY = isMobile ? -25 : -45;
+    const startScale = isMobile ? 0.94 : 0.92;
+
+    const currentRotate = (startRotate * (1 - eased)).toFixed(2);
+    const currentTranslateY = (startTranslateY * (1 - eased)).toFixed(2);
+    const currentScale = (startScale + (1 - startScale) * eased).toFixed(3);
+
+    card.style.transform = `perspective(1400px) rotateX(${currentRotate}deg) translateY(${currentTranslateY}px) scale(${currentScale})`;
+
+    // Dynamic depth shadow deepening as the video comes into place
+    const shadowY = Math.round(16 + 24 * eased);
+    const shadowBlur = Math.round(35 + 45 * eased);
+    const shadowAlpha = (0.24 + 0.16 * eased).toFixed(2);
+    card.style.boxShadow = `0 ${shadowY}px ${shadowBlur}px rgba(0, 0, 0, ${shadowAlpha}), 0 0 0 1px rgba(106, 16, 18, 0.12)`;
+
+    if (glare) {
+      glare.style.opacity = (1 - eased * 0.9).toFixed(2);
+    }
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update3D);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update3D();
 }
 
 
