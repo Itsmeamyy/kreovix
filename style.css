@@ -256,32 +256,6 @@ i,
   transition: opacity var(--transition-fast);
 }
 
-.nav-electric-logo-wrap {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 34px;
-  width: 145px;
-  overflow: visible;
-}
-
-.nav-electric-logo-wrap .nav-logo-img {
-  height: 28px;
-  width: auto;
-  position: relative;
-  z-index: 1;
-}
-
-.nav-electric-logo-wrap canvas.electric-logo-canvas {
-  position: absolute !important;
-  inset: -12px -18px !important;
-  width: calc(100% + 36px) !important;
-  height: calc(100% + 24px) !important;
-  pointer-events: auto !important;
-  z-index: 2;
-}
-
 [data-theme="dark"] .nav-logo-img {
   filter: brightness(0) invert(1);
 }
@@ -3423,22 +3397,24 @@ body.dark-mode .shop-card-title {
   height: 500px;
 }
 
-.electric-logo-stage-wrapper {
+.stage-brand-centerpiece {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 480px;
+  inset: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+  text-align: center;
+  padding: 20px;
 }
 
-.electric-logo-root {
-  width: 100%;
-  height: 100%;
-  position: relative;
+.stage-brand-centerpiece img {
+  max-width: 380px;
+  width: 75%;
+  height: auto;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.7));
 }
 
 .interactive-stage-hud {
@@ -3513,15 +3489,9 @@ body.dark-mode .shop-card-title {
   .glow-cursor-root {
     height: 380px !important;
   }
-  .electric-logo-stage-wrapper {
-    height: 360px !important;
-  }
   .stage-hud-instruction {
     font-size: 0.75rem;
     gap: 4px;
-  }
-  .nav-electric-logo-wrap {
-    width: 120px;
   }
 }
 

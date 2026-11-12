@@ -4,6 +4,153 @@
  * wheel scroll capture, dynamic curvature bending, and integrated media lightbox trigger.
  */
 
+const KREOVIX_PORTFOLIO_ITEMS = [
+  {
+    type: 'video',
+    id: 'ZWVE7T4TcM0',
+    title: 'Inkkari Tattoo Arts &mdash; Studio Reel',
+    badge: 'Video Production',
+    category: 'video-production video-editing',
+    thumb: 'https://img.youtube.com/vi/ZWVE7T4TcM0/maxresdefault.jpg',
+    meta: 'Fast Cuts &middot; Sound Design &bull; 3.2M Views'
+  },
+  {
+    type: 'video',
+    id: '4KWCU7wWyic',
+    title: 'Pluto Academy &mdash; Advance Motion',
+    badge: 'Video Editing',
+    category: 'video-editing',
+    thumb: 'https://i.ytimg.com/vi/4KWCU7wWyic/hqdefault.jpg',
+    meta: 'Kinetic Typography &middot; 3D &bull; 88% Retention'
+  },
+  {
+    type: 'video',
+    id: 'VGNL7R9ZzTU',
+    title: 'Think School &mdash; Visual Storytelling',
+    badge: 'Video Editing',
+    category: 'video-editing social-media',
+    thumb: 'https://i.ytimg.com/vi/VGNL7R9ZzTU/hqdefault.jpg',
+    meta: 'Documentary Hook &middot; Retention &bull; 1.8M Views'
+  },
+  {
+    type: 'video',
+    id: 'O6JbUuSdVxg',
+    title: 'Ashok Aggrawal &mdash; Personal Brand',
+    badge: 'Social Media',
+    category: 'social-media',
+    thumb: 'https://img.youtube.com/vi/O6JbUuSdVxg/maxresdefault.jpg',
+    meta: 'Dynamic B-Roll &middot; Hooks &bull; 650K Views'
+  },
+  {
+    type: 'video',
+    id: 'o-OCZb8BrFU',
+    title: 'Earth Rhythm &mdash; Clean Beauty',
+    badge: 'Marketing Campaigns',
+    category: 'marketing-campaigns video-production',
+    thumb: 'https://img.youtube.com/vi/o-OCZb8BrFU/maxresdefault.jpg',
+    meta: 'Product Animation &middot; Color Grade &bull; 4.1x ROAS'
+  },
+  {
+    type: 'video',
+    id: 'dmn3umPbsRY',
+    title: 'Top Health Podcast &mdash; Viral Cut',
+    badge: 'Social Media',
+    category: 'social-media video-editing',
+    thumb: 'https://i.ytimg.com/vi/dmn3umPbsRY/hqdefault.jpg',
+    meta: 'Custom Subtitles &middot; Sound FX &bull; 1.2M Views'
+  },
+  {
+    type: 'video',
+    id: '4GmfmiUx2PQ',
+    title: 'Create &amp; Connect &mdash; Workshop',
+    badge: 'Video Production',
+    category: 'video-production branding',
+    thumb: 'https://img.youtube.com/vi/4GmfmiUx2PQ/maxresdefault.jpg',
+    meta: 'Cinematic Color &middot; Montage &bull; Brand Recap'
+  },
+  {
+    type: 'video',
+    id: 'Yu1g5G6LRo4',
+    title: 'Fitness Diaries &mdash; Workout Cut',
+    badge: 'Marketing Campaigns',
+    category: 'marketing-campaigns video-production',
+    thumb: 'https://i.ytimg.com/vi/Yu1g5G6LRo4/hqdefault.jpg',
+    meta: 'Speed Ramps &middot; Beat Match &bull; 940K Views'
+  },
+  {
+    type: 'image',
+    id: '/images/shoots/shoot-stationery-set.jpg',
+    title: 'Executive Identity Suite',
+    badge: 'Branding',
+    category: 'branding graphic-design',
+    thumb: '/images/shoots/shoot-stationery-set.jpg',
+    meta: 'Brand Guidelines &middot; Print &bull; Identity System'
+  },
+  {
+    type: 'image',
+    id: '/images/graphics/gfx-heineken-mockup.jpg',
+    title: 'Heineken &mdash; Packaging Art',
+    badge: 'Graphic Design',
+    category: 'graphic-design marketing-campaigns',
+    thumb: '/images/graphics/gfx-heineken-mockup.jpg',
+    meta: '3D Render &middot; Can Artwork &bull; Campaign Visual'
+  },
+  {
+    type: 'image',
+    id: '/images/graphics/gfx-carousel.jpg',
+    title: 'Viral Carousel Strategy',
+    badge: 'Social Media',
+    category: 'social-media graphic-design',
+    thumb: '/images/graphics/gfx-carousel.jpg',
+    meta: 'Multi-Slide &middot; High Saves &bull; Organic Reach'
+  },
+  {
+    type: 'image',
+    id: '/images/graphics/gfx-calamed.jpg',
+    title: 'Calamed &mdash; Brand Identity',
+    badge: 'Branding',
+    category: 'branding graphic-design',
+    thumb: '/images/graphics/gfx-calamed.jpg',
+    meta: 'Logo &middot; Guidelines &middot; Identity &bull; MedTech'
+  },
+  {
+    type: 'image',
+    id: '/images/graphics/gfx-mayoor.jpg',
+    title: 'Mayoor Arts &mdash; Festival Poster',
+    badge: 'Graphic Design',
+    category: 'graphic-design',
+    thumb: '/images/graphics/gfx-mayoor.jpg',
+    meta: 'Custom Typography &middot; Print &bull; Cultural Event'
+  },
+  {
+    type: 'image',
+    id: '/images/shoots/shoot-mohebi.jpg',
+    title: 'Kreovix &mdash; Web Architecture',
+    badge: 'Website Design',
+    category: 'website-design branding',
+    thumb: '/images/shoots/shoot-mohebi.jpg',
+    meta: 'Next-Gen UX &middot; High Conversion &bull; Web Platform'
+  },
+  {
+    type: 'image',
+    id: '/images/graphics/gfx-photowalk.jpg',
+    title: 'City Photowalk &mdash; Poster',
+    badge: 'Graphic Design',
+    category: 'graphic-design',
+    thumb: '/images/graphics/gfx-photowalk.jpg',
+    meta: 'Editorial Layout &middot; Photography &bull; Poster Art'
+  },
+  {
+    type: 'image',
+    id: '/images/graphics/gfx-sushi.jpg',
+    title: 'D2C Culinary &mdash; Store UX',
+    badge: 'Website Design',
+    category: 'website-design marketing-campaigns',
+    thumb: '/images/graphics/gfx-sushi.jpg',
+    meta: 'Ecommerce &middot; Visual Story &bull; Brand Store'
+  }
+];
+
 class FlexCarousel {
   constructor(container, options = {}) {
     this.container = typeof container === 'string' ? document.querySelector(container) : container;
@@ -15,14 +162,17 @@ class FlexCarousel {
       pauseOnHover: true,
       captureWheel: true,
       focusOnClick: true,
-      cardWidth: 320,
-      gap: 24,
+      cardWidth: 280,
+      gap: 22,
       bend: 0.18,
       items: []
     }, options);
 
-    // Read items from options or DOM
-    this.rawItems = this.options.items.length > 0 ? this.options.items : this.extractItemsFromDOM();
+    // Read items from options, DOM, or embedded portfolio list
+    const domItems = this.extractItemsFromDOM();
+    this.rawItems = (this.options.items && this.options.items.length > 0)
+      ? this.options.items
+      : (domItems.length > 0 ? domItems : KREOVIX_PORTFOLIO_ITEMS);
     if (!this.rawItems.length) return;
 
     this.activeFilter = 'all';
